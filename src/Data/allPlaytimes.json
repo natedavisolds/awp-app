@@ -1,0 +1,14 @@
+{
+    "1" : { 
+      "id": "1",
+      "title": "Playtime 1",
+      "playAt": "Today",
+      "confirmedAt": "2016-06-01 0:0"
+    },
+    "2" : { 
+      "id": "2",
+      "title": "Playtime 2",
+      "playAt": "Monday",
+      "confirmedAt": null
+    }
+  }
