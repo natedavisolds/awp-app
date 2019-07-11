@@ -2,11 +2,15 @@ import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {PlaytimeConsumer} from '../PlaytimeContext'
 
-const PlaytimeDescription = ({playtime}) => 
-  <>
-  <small>{playtime.id}</small>
-  <h1>{playtime.title}</h1>
-  </>
+const PlaytimePane = ({playtime}) => 
+  <div className="pane p-3">
+    
+    <h1>{playtime.title}</h1>
+    { playtime.location && <p>@{playtime.location}</p>}
+    { playtime.description && <div><p>{playtime.description}</p></div>}
+
+    <small>{playtime.id}</small>
+  </div>
 
 const PlaytimeContainer = ({match, allPlaytimes={}}) => {
   const [playtime, setPlaytime] = useState({})
@@ -17,10 +21,10 @@ const PlaytimeContainer = ({match, allPlaytimes={}}) => {
 
   return (
     <div>
-      <div>
-        <Link to="/playtimes" >&lt; Back</Link>
+      <div className="navbar bg-light pane-header">
+        <Link to="/playtimes" className="btn btn-secondary">&lt; Playtimes</Link>
       </div>
-      { playtime && <PlaytimeDescription playtime={playtime} /> } 
+      { playtime && <PlaytimePane playtime={playtime} /> } 
     </div>
   )
 }

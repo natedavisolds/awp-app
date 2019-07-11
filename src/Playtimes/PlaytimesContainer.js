@@ -3,6 +3,8 @@ import QueryFilter from './QueryFilter'
 import PlaytimeList from './PlaytimeList'
 import {PlaytimeConsumer} from '../PlaytimeContext'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import DateUtils from '../Utils/DateUtils'
 import FacetFilter from './FacetFilter'
 
@@ -37,10 +39,15 @@ const PlaytimeContainer = ({playtimes}) => {
     const [filteredPlaytimes, setFilteredPlaytimes] = useState(playtimes);
     const [facet, setFacet] = useState("playing");
     const [query, setQuery] = useState("");
+    const [displaySearch, setDisplaySearch] = useState(false)
 
     const queryChange = (newQuery) => setQuery(newQuery)
     const facetChange = (newFacet) => setFacet(newFacet)
     
+    const showSearch = () => { 
+      setDisplaySearch(!displaySearch) 
+    }
+
     useEffect(() => {
       setFilteredPlaytimes(
         filterPlaytimes(query,
@@ -51,8 +58,12 @@ const PlaytimeContainer = ({playtimes}) => {
 
     return (
       <div>
-        <FacetFilter onChange={facetChange} currentFacet={facet} facets={Object.values(PlaytimeFacets)} />
-        <QueryFilter onChange={queryChange} />
+        <FacetFilter onChange={facetChange} currentFacet={facet} facets={Object.values(PlaytimeFacets)}>
+          <li className="nav-item nav-link" onClick={(e) => {e.preventDefault(); showSearch()} }>
+            <FontAwesomeIcon icon="search" />
+          </li>
+        </FacetFilter>
+        { displaySearch && <QueryFilter onChange={queryChange} /> }
         <PlaytimeList playtimes={filteredPlaytimes} />
       </div>
     );

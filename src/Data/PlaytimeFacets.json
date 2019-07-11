@@ -18,10 +18,5 @@
     {
       "key": "past",
       "label": "Past"
-    },
-  "new":
-    {
-      "key": "new",
-      "label": "New"
     }
 }
