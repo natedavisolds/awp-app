@@ -7,7 +7,7 @@ const PlaytimeListing = ({playtime}) =>
       <small>{playtime.playAt }</small>
     </div>
     { playtime.confirmedAt ? <small>You are playing</small> : ""}
-    <p className="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    { playtime.description && <p className="mb-1">{playtime.description}</p> }
   </a>
 
 export default PlaytimeListing

@@ -18,8 +18,8 @@ const QueryFilter = ({onChange}) => {
     },[query,onChange])
   
     return (
-      <div className="input-group mb-3">
-        <input type="text" className="form-control" onChange={handleQueryChange} placeholder="Filter" aria-label="Filter" aria-describedby="button-filter" />
+      <div className="input-group px-3 py-2 bg-light">
+        <input type="text" className="form-control" onChange={handleQueryChange} placeholder="Search" aria-label="Filter" aria-describedby="button-filter" />
       </div>
     )
   }

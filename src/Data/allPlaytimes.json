@@ -1,14 +1,15 @@
 {
     "1" : { 
       "id": "1",
-      "title": "Playtime 1",
-      "playAt": "Today",
+      "title": "Pickleball",
+      "playAt": "2019-07-01 0:0",
       "confirmedAt": "2016-06-01 0:0"
     },
     "2" : { 
       "id": "2",
-      "title": "Playtime 2",
-      "playAt": "Monday",
-      "confirmedAt": null
+      "title": "Golf",
+      "playAt": "2019-07-15 0:0",
+      "confirmedAt": null,
+      "description": "This is more information on this playtime."
     }
   }
