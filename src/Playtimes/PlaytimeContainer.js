@@ -3,28 +3,10 @@ import QueryFilter from './QueryFilter'
 import PlaytimeList from './PlaytimeList'
 import {PlaytimeConsumer} from '../PlaytimeContext'
 
-const activeClass = (candidate, baseFacet) => {
-  return candidate === baseFacet ? 'active' : ''
-}
+import DateUtils from '../Utils/DateUtils'
+import FacetFilter from './FacetFilter'
 
-const defaultActiveClass = (candidate, baseFacet) => {
-  if (candidate === '' || typeof candidate === undefined) {
-    return 'active'
-  } else {
-    return activeClass(candidate,baseFacet)
-  }
-}
-
-const FacetFilter = ({onChange, currentFacet=""}) => 
-  <ul className="nav nav-pills nav-fill p-2">
-    <li className={`nav-item nav-link ${defaultActiveClass(currentFacet,'any')}`} onClick={() => onChange('any') }>
-      Any</li>
-    <li className={`nav-item nav-link ${activeClass(currentFacet,'playing')}`} onClick={() => onChange('playing') }>Playing</li>
-    <li className={`nav-item nav-link ${activeClass(currentFacet,'soon')}`} onClick={() => onChange('soon') }>Soon</li>
-    <li className={`nav-item nav-link ${activeClass(currentFacet,'past')}`} onClick={() => onChange('past') }>Past</li>
-    <li className={`nav-item nav-link ${activeClass(currentFacet,'new')}`} onClick={() => onChange('new') }>New</li>
-  </ul>
-
+import PlaytimeFacets from '../Data/PlaytimeFacets.json'
 
 const filterPlaytimes = (query, playtimes) => {
   const regex = new RegExp("" + query + "", "i")
@@ -36,24 +18,16 @@ const filterPlaytimes = (query, playtimes) => {
   }
 }
 
-const laterThanDate = (candidate, comparedTo) => {
-  return Date.parse(candidate) >= comparedTo 
-}
-
-const earlierThanDate = (candidate, comparedTo) => {
-  return Date.parse(candidate) < comparedTo 
-}
-
 const facettedPlaytimes = (facet, playtimes=[]) => {
   switch(facet) {
     case 'playing':
       return playtimes.filter(playtime => playtime.confirmedAt ? true : false )
     case 'soon':
-      return playtimes.filter(playtime => laterThanDate(playtime.playAt, Date.now()) )
+      return playtimes.filter(playtime => DateUtils.laterThan(playtime.playAt, Date.now()) )
     case 'past':
-        return playtimes.filter(playtime => earlierThanDate(playtime.playAt, Date.now()) )
+        return playtimes.filter(playtime => DateUtils.earlierThan(playtime.playAt, Date.now()) )
     case 'new':
-      return playtimes.filter(playtime => laterThanDate(playtime.createdAt, Date.now()))
+      return playtimes.filter(playtime => DateUtils.laterThan(playtime.createdAt, Date.now()))
     default:
       return playtimes
   }
@@ -77,7 +51,7 @@ const PlaytimeContainer = ({playtimes}) => {
 
     return (
       <div>
-        <FacetFilter onChange={facetChange} currentFacet={facet} />
+        <FacetFilter onChange={facetChange} currentFacet={facet} facets={Object.values(PlaytimeFacets)} />
         <QueryFilter onChange={queryChange} />
         <PlaytimeList playtimes={filteredPlaytimes} />
       </div>

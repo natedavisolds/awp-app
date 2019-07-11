@@ -1,0 +1,27 @@
+{
+  "any": {
+      "key": "any",
+      "label": "Any",
+      "default": true
+    },
+  "playing":
+    {
+      "key": "playing",
+      "label": "Playing"
+    },
+  "soon":
+    {
+      "key": "soon",
+      "label": "Soon"
+    },
+  "past":
+    {
+      "key": "past",
+      "label": "Past"
+    },
+  "new":
+    {
+      "key": "new",
+      "label": "New"
+    }
+}
