@@ -7,7 +7,7 @@ export const PlaytimeProvider = (props) => {
   const [playtimes] = useState(Object.values(allPlaytimes))
 
   return (
-    <PlaytimeContext.Provider value={{playtimes}}>
+    <PlaytimeContext.Provider value={{playtimes, allPlaytimes}}>
       {props.children}
     </PlaytimeContext.Provider>
   );

@@ -6,21 +6,17 @@ import {PlaytimeProvider} from './PlaytimeContext'
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-
-
-import PlaytimeContainer from './Playtimes'
+import PlaytimesContainer from './Playtimes'
+import PlaytimeContainer from './Playtimes/PlaytimeContainer'
 import Navbar from './Site/Navbar'
-
-const BlankContainer = () => <div><h1>Blank</h1></div>
-
+  
 const App = () => 
   <PlaytimeProvider>
     <Router>
       <Route component={Navbar} />
-      <Route  exact default path={["/playtimes","/play"]} component={PlaytimeContainer} />
-      <Route  path="/playtimes/:playtimeId" component={PlaytimeContainer} />
+      <Route exact default path={["/playtimes","/play"]} component={PlaytimesContainer} />
+      <Route path="/playtimes/:playtimeId" component={PlaytimeContainer} />
     </Router>
   </PlaytimeProvider>
-
 
 export default App

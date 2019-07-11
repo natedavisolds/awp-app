@@ -1,3 +1,3 @@
-import PlaytimeContainer from './PlaytimeContainer'
+import PlaytimesContainer from './PlaytimesContainer'
 
-export default PlaytimeContainer
+export default PlaytimesContainer

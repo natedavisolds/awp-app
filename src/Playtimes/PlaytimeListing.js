@@ -1,7 +1,7 @@
 import React from 'react'
 
 const PlaytimeListing = ({playtime}) =>
-  <a href={ `/playtimes/${playtime.id}` } onClick={(e) => e.preventDefault() } className="list-group-item list-group-item-action">
+  <a href={ `/playtimes/${playtime.id}` } className="list-group-item list-group-item-action">
     <div className="d-flex w-100 justify-content-between">
       <h5 className="mb-1">{playtime.title}</h5>
       <small>{playtime.playAt }</small>
