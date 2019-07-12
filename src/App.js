@@ -14,9 +14,9 @@ import ProfileContainer from './Profile'
 import Navbar from './Site/Navbar'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faRunning, faUser } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faSearch)
+library.add(faSearch, faRunning, faUser)
   
 const App = () => 
   <UserProvider>

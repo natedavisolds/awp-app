@@ -5,3 +5,12 @@ body {
 .pane-header {
   height: 60px;
 }
+
+.nav-main {
+  background:#efefef;
+  border-top: 1px solid #dddddd;
+}
+
+.nav-main a {
+  color: #222222;
+}
