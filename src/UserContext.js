@@ -1,17 +1,40 @@
 import React, {useState,useEffect} from 'react'
-import Users from './Data/Users'
+import allUsers from './Data/allUsers.json'
+
+const UnauthorizedUser = {
+  "id": "0",
+  "displayName": "None",
+  "loginName": "",
+  "confirmedPlaytimes": {},
+  "authenticated": false,
+  "authorized": false
+}
 
 const findUser = (id) => {
-  return Users[id]
+  const candidate = allUsers[id]
+
+  if (candidate !== undefined) {
+    return Object.assign({},candidate, {
+      authenticated: true,
+      authorized: true
+    })
+  } else {
+    return UnauthorizedUser
+  }
 }
 
 const UserContext = React.createContext()
 
 export const UserProvider = (props) => {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(UnauthorizedUser)
+
+  const login = (username) => {
+    const candidateUser = findUser(username)
+    setUser(candidateUser) 
+  }
 
   useEffect(() => {
-    setUser(findUser("1"))
+    login("nate")
   },[])
 
   return (
