@@ -1,22 +1,22 @@
 {
-  "any": {
-      "key": "any",
-      "label": "Any",
-      "default": true
+  "soon":
+    {
+      "key": "soon",
+      "label": "Soon"
     },
   "playing":
     {
       "key": "playing",
       "label": "Playing"
     },
-  "soon":
-    {
-      "key": "soon",
-      "label": "Soon"
-    },
   "past":
     {
       "key": "past",
       "label": "Past"
-    }
+    },
+  "any": {
+    "key": "any",
+    "label": "Any",
+    "default": true
+  }
 }

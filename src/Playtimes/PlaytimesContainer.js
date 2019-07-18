@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import QueryFilter from './QueryFilter'
 import PlaytimeList from './PlaytimeList'
 import {PlaytimeConsumer} from '../PlaytimeContext'
+import {UserConsumer} from '../UserContext'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -9,6 +10,8 @@ import DateUtils from '../Utils/DateUtils'
 import FacetFilter from './FacetFilter'
 
 import PlaytimeFacets from '../Data/PlaytimeFacets.json'
+
+import {filterPlaytimes as filterPlaytimesWithin} from '../Utils/PlaytimeUtils'
 
 const filterPlaytimes = (query, playtimes) => {
   const regex = new RegExp("" + query + "", "i")
@@ -20,10 +23,12 @@ const filterPlaytimes = (query, playtimes) => {
   }
 }
 
-const facettedPlaytimes = (facet, playtimes=[]) => {
+const filterConfirmedPlaying = (confirmedPlaytimes=[]) => confirmedPlaytimes.filter(confirmed => confirmed["playing"] === true)
+
+const facettedPlaytimes = (facet, playtimes=[],user) => {
   switch(facet) {
     case 'playing':
-      return playtimes.filter(playtime => playtime.confirmedAt ? true : false )
+      return (user ? filterPlaytimesWithin(playtimes,filterConfirmedPlaying(Object.values(user.confirmedPlaytimes))) : [])
     case 'soon':
       return playtimes.filter(playtime => DateUtils.laterThan(playtime.playAt, Date.now()) )
     case 'past':
@@ -34,10 +39,20 @@ const facettedPlaytimes = (facet, playtimes=[]) => {
       return playtimes
   }
 }
+const facetFromUrl = ({params}) => {
+  switch(params.facet) {
+    case "soon":
+    case "past":
+    case "any":
+      return params.facet
+    default:
+      return "playing"
+  }
+}
 
-const PlaytimeContainer = ({playtimes}) => {
+const PlaytimeContainer = ({playtimes, match, user}) => {
     const [filteredPlaytimes, setFilteredPlaytimes] = useState(playtimes);
-    const [facet, setFacet] = useState("playing");
+    const [facet, setFacet] = useState(facetFromUrl(match));
     const [query, setQuery] = useState("");
     const [displaySearch, setDisplaySearch] = useState(false)
 
@@ -51,10 +66,10 @@ const PlaytimeContainer = ({playtimes}) => {
     useEffect(() => {
       setFilteredPlaytimes(
         filterPlaytimes(query,
-          facettedPlaytimes(facet,playtimes)
+          facettedPlaytimes(facet,playtimes,user)
         )
       )
-    }, [facet, query, playtimes])
+    }, [facet, query, playtimes,user])
 
     return (
       <div>
@@ -69,4 +84,4 @@ const PlaytimeContainer = ({playtimes}) => {
     );
   }
 
-export default PlaytimeConsumer(PlaytimeContainer);
+export default UserConsumer(PlaytimeConsumer(PlaytimeContainer));

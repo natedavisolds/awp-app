@@ -2,15 +2,13 @@
     "1" : { 
       "id": "1",
       "title": "Pickleball 1",
-      "playAt": "2019-07-01 0:0",
-      "confirmedAt": "2016-06-01 0:0",
+      "playAt": "2019-09-01 0:0",
       "location": "Watertower"
     },
     "2" : { 
       "id": "2",
       "title": "Golf",
-      "playAt": "2019-07-15 0:0",
-      "confirmedAt": null,
+      "playAt": "2019-08-15 0:0",
       "description": "This is more information on this playtime.",
       "location": "Ravenclaw"
     },
@@ -24,7 +22,6 @@
       "id": "4",
       "title": "Pickleball 4",
       "playAt": "2019-07-01 0:0",
-      "confirmedAt": "2016-06-01 0:0",
       "location": "Watertower"
     }
   }

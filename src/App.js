@@ -23,6 +23,7 @@ const App = () =>
       <Router>
         <Route component={Navbar} />
         <Route exact default path={["/playtimes","/play"]} component={PlaytimesContainer} />
+        <Route exact path={["/play/:facet"]} component={PlaytimesContainer} />
         <Route exact path="/profile" component={ProfileContainer} />
         <Route path="/playtimes/:playtimeId" component={PlaytimeContainer} />
       </Router>

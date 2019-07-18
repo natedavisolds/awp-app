@@ -14,3 +14,8 @@ body {
 .nav-main a {
   color: #222222;
 }
+
+.transparent-input {
+  background: transparent;
+  border: 0px solid transparent;
+}
