@@ -10,6 +10,7 @@ import './App.css';
 import PlaytimesContainer from './Playtimes'
 import PlaytimeContainer from './Playtimes/PlaytimeContainer'
 import ProfileContainer from './Profile'
+import SignupContainer from './Signup'
 
 import Navbar from './Site/Navbar'
 
@@ -26,6 +27,7 @@ const App = () =>
         <Route exact path={["/play/:facet"]} component={PlaytimesContainer} />
         <Route exact path="/profile" component={ProfileContainer} />
         <Route path="/playtimes/:playtimeId" component={PlaytimeContainer} />
+        <Route exact path="/signup" component={SignupContainer} />
       </Router>
     </PlaytimeProvider>
   </UserProvider>

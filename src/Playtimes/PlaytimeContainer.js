@@ -9,7 +9,7 @@ const PlaytimeContainer = ({match, allPlaytimes={}}) => {
   
   useEffect(() => {
     setPlaytime(allPlaytimes[match.params["playtimeId"]])
-  }, [match])
+  }, [match,allPlaytimes])
 
   return (
     <div>
