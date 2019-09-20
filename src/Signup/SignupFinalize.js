@@ -22,23 +22,21 @@ const SignupFinalize = SectionConsumer(({signup, stepper, onSignup}) => {
         <input type="password" 
           onBlur={() => setValidatingPassword(true) } 
           onChange={(e) => signup.update({password: e.target.value})} name="signupPhone" 
-          className={`form-control ${errorState === false &&  'is-invalid'} ${errorState === true &&  'is-valid'}`}
-          aria-label="Password"></input>
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="signupPhone2">Re-enter Password</label>
+          className={`form-control mb-2 ${errorState === false &&  'is-invalid'} ${errorState === true &&  'is-valid'}`}
+          aria-label="Password"
+          placeholder="Enter a password"></input>
         <input type="password" name="signupPhone2" 
           onBlur={() => setValidating(true)} 
           onChange={(e) => signup.update({passwordConfirm: e.target.value})} 
           className={`form-control ${errorState === false &&  'is-invalid'} ${errorState === true &&  'is-valid'}`}
-          aria-label="Re-enter Password"></input>
+          aria-label="Re-enter Password"
+          placeholder="Re-type your password"></input>
           <div className="invalid-feedback">Passwords don't match. Please, type them again.</div>
           <div className="valid-feedback">Matching.</div>
       </div>
       
       <div className="form-group">
-        <button className="btn btn-outline-secondary mr-2" onClick={(e) => {e.preventDefault(); stepper.previous()}}>Previous</button>
+        <a href="#" className="btn btn-outline-secondary mr-2" onClick={(e) => {e.preventDefault(); stepper.previous()}}>Previous</a>
         <ConditionalButton valid={signup.valid} onClick={onSignup}>Sign up</ConditionalButton>
       </div>
     </form>
