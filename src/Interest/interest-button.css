@@ -1,0 +1,83 @@
+.interest-grid {
+  width: 100%;
+}
+
+.interest-table {
+  width: 275px;
+  margin: 0 auto;
+}
+
+.interest-table-col-header {
+  text-align: center;
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  border-bottom: 2px solid transparent;
+}
+
+.interest-table-col-header.interested {
+  color: green;
+  border-bottom: 2px solid green;
+}
+
+.interest-table-cell {
+  padding:2px;
+  margin:0px;
+  position:relative;
+  width: 40px;
+  height: 40px;
+}
+
+.interest-table-row {
+  padding:0;
+  margin:0;
+}
+
+.interest-table-row-header {
+  text-align: right;
+  font-size: 12px;
+  padding-right: 3px;
+}
+
+.interest-btn {
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  font-size: 11px;
+  width: 40px;
+  height: 40px;
+}
+
+.interest-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.interest-btn-0 {
+  background-color: transparent;
+}
+
+.interest-btn-1 {
+  background-color: #DDDDDD;
+}
+
+.interest-btn-2 {
+  background-color: #AAAAAA;
+}
+
+.interest-btn-3 {
+  background-color: #777777;
+  color: white;
+}
+
+.interest-btn-3:focus {
+  color: white;
+}
+
+.interest-btn-4 {
+  background-color: green;
+  color: white;
+}
+
+.interest-btn-4:focus {
+  color: white;
+}
