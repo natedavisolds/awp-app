@@ -10,8 +10,8 @@
 .interest-table-col-header {
   text-align: center;
   font-size: 12px;
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   border-bottom: 2px solid transparent;
 }
 
@@ -23,9 +23,12 @@
 .interest-table-cell {
   padding:2px;
   margin:0px;
-  position:relative;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
+}
+
+.interest-table-cell.interest-table-hidden * {
+  visibility: hidden;
 }
 
 .interest-table-row {
@@ -41,10 +44,12 @@
 
 .interest-btn {
   border: 1px solid #cccccc;
+  background-color: transparent;
   border-radius: 0;
   font-size: 11px;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
+  font-weight: bold;
 }
 
 .interest-btn:focus {
@@ -54,6 +59,10 @@
 
 .interest-btn-0 {
   background-color: transparent;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><path d='M100 0 L0 100 ' stroke='red' stroke-width='1'/><path d='M0 0 L100 100 ' stroke='red' stroke-width='1'/></svg>");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size: 100% 100%, auto;
 }
 
 .interest-btn-1 {
