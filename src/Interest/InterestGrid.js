@@ -1,4 +1,4 @@
-import React, {useReducer,useEffect} from 'react'
+import React, {useReducer} from 'react'
 import _ from 'lodash'
 
 import InterestButton from './InterestButton'
@@ -63,7 +63,7 @@ const InterestGrid = ({days=["Mo","Tu","We","Th","Fr","Sa","Su"]}) => {
       <table className="interest-table">
         <thead>
           <tr>
-            { days.map(day => <td key={day} className={`interest-table-col-header ${ isShowingDay(day) && 'interested'}`} onClick={() => toggleDayInterest(day)} scope="col">{day}</td>) }
+            { days.map(day => <th key={day} className={`interest-table-col-header ${ isShowingDay(day) && 'interested'}`} onClick={() => toggleDayInterest(day)} scope="col">{day}</th>) }
           </tr>
         </thead>
         <tbody>

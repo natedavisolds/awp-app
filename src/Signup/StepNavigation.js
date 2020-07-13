@@ -3,7 +3,7 @@ import ConditionalButton from './ConditionalButton'
 import StepProgress from './StepProgress'
 
 const PreviousCol = ({onClick}) =>
-  <a href="#" className="btn btn-outline-secondary mr-2" onClick={(e) => { e.preventDefault(); onClick()}}>Previous</a>
+  <button className="btn btn-outline-secondary mr-2" onClick={(e) => { e.preventDefault(); onClick()}}>Previous</button>
 
 const NextCol = ({valid, onClick}) =>
   <ConditionalButton valid={valid} onClick={() => valid ? onClick() : false }>Next</ConditionalButton>

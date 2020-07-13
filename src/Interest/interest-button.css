@@ -90,3 +90,12 @@
 .interest-btn-4:focus {
   color: white;
 }
+
+.interest-btn-max {
+  background-color: green;
+  color: white;
+}
+
+.interest-btn-max:focus {
+  color: white;
+}

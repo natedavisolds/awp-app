@@ -36,7 +36,7 @@ const SignupFinalize = SectionConsumer(({signup, stepper, onSignup}) => {
       </div>
       
       <div className="form-group">
-        <a href="#" className="btn btn-outline-secondary mr-2" onClick={(e) => {e.preventDefault(); stepper.previous()}}>Previous</a>
+        <a href="/previous" className="btn btn-outline-secondary mr-2" onClick={(e) => {e.preventDefault(); stepper.previous()}}>Previous</a>
         <ConditionalButton valid={signup.valid} onClick={onSignup}>Sign up</ConditionalButton>
       </div>
     </form>

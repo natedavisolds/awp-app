@@ -1,18 +1,10 @@
-import React, {useState,useReducer,useEffect} from 'react'
+import React, {useState} from 'react'
 
 const SectionContext = React.createContext()
 
-const StepReducer = (state, action) => {
-  switch(action.type) {
-    case "INCREMENT_TOTAL":
-      return {...state, total:(state.total + 1)}
-    default:
-  }
-}
-
 export const Sectioned = ({children,startStep=1,totalSteps=0,...props}) => {
   const [step, setStep] = useState(startStep)
-  const [total,setTotal] = useState(totalSteps)
+  const [total] = useState(totalSteps)
 
   const isStep = (candidate) => { return(candidate === step)}
   const next = () => setStep(step + 1)
